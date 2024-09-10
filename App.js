@@ -14,8 +14,16 @@ const BookmarksStack = createStackNavigator();
 function JobsStackNavigator() {
   return (
     <JobsStack.Navigator>
-      <JobsStack.Screen name="Jobs" component={JobsScreen} />
-      <JobsStack.Screen name="JobDetailsScreen" component={JobDetailsScreen} />
+      <JobsStack.Screen 
+        name="Jobs" 
+        component={JobsScreen} 
+        options={{ title: 'Jobs' }} // Optional, can be customized
+      />
+      <JobsStack.Screen 
+        name="JobDetails" 
+        component={JobDetailsScreen} 
+        options={{ title: 'Job Details' }} 
+      />
     </JobsStack.Navigator>
   );
 }
@@ -23,8 +31,16 @@ function JobsStackNavigator() {
 function BookmarksStackNavigator() {
   return (
     <BookmarksStack.Navigator>
-      <BookmarksStack.Screen name="Bookmarks" component={BookmarksScreen} />
-      <BookmarksStack.Screen name="JobDetailsScreen" component={JobDetailsScreen} />
+      <BookmarksStack.Screen 
+        name="Bookmarks" 
+        component={BookmarksScreen} 
+        options={{ title: 'Bookmarks' }} // Optional, can be customized
+      />
+      <BookmarksStack.Screen 
+        name="JobDetails" 
+        component={JobDetailsScreen} 
+        options={{ title: 'Job Details' }} 
+      />
     </BookmarksStack.Navigator>
   );
 }
@@ -43,7 +59,6 @@ export default function App() {
               iconName = 'bookmark';
             }
 
-            // You can return any component that you like here!
             return <FontAwesome name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'darkblue',
@@ -52,7 +67,8 @@ export default function App() {
             backgroundColor: '#ffffff',
             borderTopWidth: 0,
             elevation: 0, // For Android shadow
-            shadowOpacity: 0, // For iOS shadow
+            // Removed shadowOpacity; use boxShadow if targeting web
+            // boxShadow: '0px -1px 3px rgba(0, 0, 0, 0.2)' // Uncomment if using web
           },
           headerStyle: {
             backgroundColor: '#0d47a1',
